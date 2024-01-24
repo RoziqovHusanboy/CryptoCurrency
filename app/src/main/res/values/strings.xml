@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Certificate</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="splash_screen_title">Currency Converter</string>
+    <string name="fragment_splash_continue">Continue</string>
+    <string name="item_recyclerview_date">Date: %s</string>
+    <string name="detail_fragment_title">Currency Converter</string>
+    <string name="detail_fragment_desc">Check live rates, set rate alerts, receive notifications and more.</string>
+    <string name="detail_fragment_rate">1 %s = %s sum</string>
+    <string name="error">Error \n</string>
+</resources>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/detail_fragment_title"
+        android:textColor="@color/color_currency"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/detail_fragment_desc"
+        android:textAlignment="center"
+        android:textColor="#808080"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="320dp"
+        android:layout_height="268dp"
+        android:layout_marginTop="41dp"
+        android:background="@color/white"
+        android:elevation="1dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/desc">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:text="Amount"
+                android:textColor="#989898"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/countFirst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="14dp"
+                android:textColor="@color/color_currency"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/amount"
+                tools:text="USD" />
+
+            <EditText
+                android:id="@+id/countFirstET"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/background_edit_text"
+                android:paddingStart="10dp"
+                android:text="1"
+                android:inputType="number"
+                app:layout_constraintBottom_toBottomOf="@id/countFirst"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/countFirst" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/dividerFirst"
+                android:layout_width="112dp"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="40dp"
+                android:elevation="1dp"
+                app:dividerColor="#E7E7EE"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/countFirst" />
+
+            <ImageView
+                android:id="@+id/image_divider"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_divider"
+                app:layout_constraintBottom_toBottomOf="@id/dividerFirst"
+                app:layout_constraintStart_toEndOf="@id/dividerFirst"
+                app:layout_constraintTop_toTopOf="@id/dividerFirst" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider"
+                android:layout_width="115dp"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="40dp"
+                android:elevation="1dp"
+                app:dividerColor="#E7E7EE"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/countFirst" />
+
+            <TextView
+                android:id="@+id/Convertedamount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="35dp"
+                android:text="Converted Amount"
+                android:textColor="#989898"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+
+                />
+
+
+            <TextView
+                android:id="@+id/countSecond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="14dp"
+                android:text="UZ"
+                android:textColor="@color/color_currency"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Convertedamount" />
+
+            <TextView
+                android:id="@+id/countSecondET"
+                android:layout_width="160dp"
+                android:layout_height="45dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/background_edit_text"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/countSecond"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/countSecond" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/rate_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Indicative Exchange Rate"
+        android:textColor="#989898"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@id/card"
+        app:layout_constraintTop_toBottomOf="@id/card" />
+
+    <TextView
+        android:id="@+id/inputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/detail_fragment_rate"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/rate_TV"
+        app:layout_constraintTop_toBottomOf="@id/rate_TV" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
