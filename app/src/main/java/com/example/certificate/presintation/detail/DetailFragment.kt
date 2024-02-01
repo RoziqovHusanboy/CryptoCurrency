@@ -11,12 +11,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.certificate.R
-import com.example.certificate.databinding.DetailFragmentBinding
+import com.example.certificate.databinding.FragmentDetailBinding
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailFragment : Fragment() {
-    private lateinit var binding: DetailFragmentBinding
+    private lateinit var binding: FragmentDetailBinding
     private val args by navArgs<DetailFragmentArgs>()
     private val viewModel by viewModels<DetailViewModel>()
     override fun onCreateView(
@@ -24,7 +25,7 @@ class DetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DetailFragmentBinding.inflate(inflater)
+        binding = FragmentDetailBinding.inflate(inflater)
         return binding.root
     }
 
