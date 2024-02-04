@@ -34,69 +34,69 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        UI()
+    }
 
-        binding.apply {
+    private fun UI() = with(binding) {
+        exit.setOnClickListener {
+            requireActivity().finish()
+        }
+        shareTV.setOnClickListener {
+            val appPackageName = requireContext().packageName
+            val sendIntent = Intent()
+            sendIntent.action = Intent.ACTION_SEND
+            sendIntent.putExtra(
+                Intent.EXTRA_TEXT,
+                "Check out the App at: https://play.google.com/store/apps/details?id=$appPackageName" // after adding app to play store, will change link
+            )
+            sendIntent.type = "text/plain"
+            requireContext().startActivity(sendIntent)
+        }
 
-            exit.setOnClickListener {
-                requireActivity().finish()
-            }
-            shareTV.setOnClickListener {
-                val appPackageName = requireContext().packageName
-                val sendIntent = Intent()
-                sendIntent.action = Intent.ACTION_SEND
-                sendIntent.putExtra(
-                    Intent.EXTRA_TEXT,
-                    "Check out the App at: https://play.google.com/store/apps/details?id=$appPackageName" // after adding app to play store, will change link
-                )
-                sendIntent.type = "text/plain"
-                requireContext().startActivity(sendIntent)
-            }
+        binding.about.setOnClickListener {
+            findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToAboutFragment())
+        }
 
-            binding.about.setOnClickListener {
-                findNavController().navigate(ProfileFragmentDirections.actionProfileFragmentToAboutFragment())
-            }
+        phone.setOnClickListener {
+            val intent = Intent(Intent.ACTION_DIAL)
+            val number = 918690342
+            intent.data = Uri.parse("tel:+992$number")
+            startActivity(intent)
+        }
 
-            phone.setOnClickListener {
-                val intent = Intent(Intent.ACTION_DIAL)
-                val number = 918690342
-                intent.data = Uri.parse("tel:+992$number")
-                startActivity(intent)
-            }
-
-            imageFacebook.setOnClickListener {
-                val intent = Intent(Intent.ACTION_VIEW)
-                val facebookURL = getSocialPageURL(requireContext(), FACEBOOK_URL, FACEBOOK_PAGE_ID)
-                intent.setData(Uri.parse(facebookURL)).apply {
-                    startActivity(this)
-                }
-
-            }
-            imageInstagramm.setOnClickListener {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(INSTAGRAMM_URL)).apply {
-                    startActivity(this)
-                }
-            }
-            imageTelegramm.setOnClickListener {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(TELEGRAMM_URL)).apply {
-                    startActivity(this)
-                }
-
-
+        imageFacebook.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW)
+            val facebookURL = getSocialPageURL(requireContext(), FACEBOOK_URL, FACEBOOK_PAGE_ID)
+            intent.setData(Uri.parse(facebookURL)).apply {
+                startActivity(this)
             }
         }
+
+        imageInstagramm.setOnClickListener {
+            Intent(Intent.ACTION_VIEW, Uri.parse(INSTAGRAMM_URL)).apply {
+                startActivity(this)
+            }
+        }
+
+        imageTelegramm.setOnClickListener {
+            Intent(Intent.ACTION_VIEW, Uri.parse(TELEGRAMM_URL)).apply {
+                startActivity(this)
+            }
+        }
+
     }
 
     fun getSocialPageURL(context: Context, url: String, pageID: String): String? {
         val packageManager = context.packageManager
         return try {
             val versionCode = packageManager.getPackageInfo("com.facebook.orca", 0).versionCode
-            if (versionCode >= 3002850) { //newer versions of fb app
+            if (versionCode >= 3002850) {
                 "fb://facewebmodal/f?href=$url"
-            } else { //older versions of fb app
+            } else {
                 "fb://page/$pageID"
             }
         } catch (e: PackageManager.NameNotFoundException) {
-            FACEBOOK_URL //normal web url
+            FACEBOOK_URL
         }
     }
 }

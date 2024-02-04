@@ -9,7 +9,4 @@ class ConvertRepoImpl @Inject constructor(
     private val api: ConvertApi
 ):ConvertRepo {
     override suspend fun getConvert() = api.getConvert()
-
-
-
 }
